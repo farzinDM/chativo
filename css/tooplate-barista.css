@@ -1200,6 +1200,10 @@ div > div.vfrc-widget--launcher.c-PJLV {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
+
+    iframe {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 578px) {
