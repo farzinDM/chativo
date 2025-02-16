@@ -75,6 +75,7 @@ https://www.tooplate.com/view/2137-barista-cafe
 body {
     background-color: var(--white-color);
     font-family: var(--body-font-family);
+    overflow-x: hidden;
 }
 
 /*---------------------------------------
@@ -1235,11 +1236,6 @@ div > div.vfrc-widget--launcher.c-PJLV {
         font-size: 20px;
     }
 
-    .hero-section::after {
-        width: 200px;
-        height: 200px;
-    }
-
     .booking-form {
         padding: 35px;
     }
@@ -1270,5 +1266,10 @@ div > div.vfrc-widget--launcher.c-PJLV {
     .timeline-container-left::before,
     .timeline-container-right::before {
         top: 13px;
+    }
+
+    .hero-section::after {
+        width: 95%;
+        height: 300px;
     }
 }
