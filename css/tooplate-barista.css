@@ -737,7 +737,7 @@ strong {
     bottom: 0;
 }
 
-#section-3 .container > div {
+#section_3 .container > div {
     column-gap: 4rem;
 }
 
@@ -853,7 +853,7 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-    background-image: url("../images/young-female-barista-wear-face-mask-serving-take-away-hot-coffee-paper-cup-consumer-cafe.jpg");
+    background-image: url("../images/cd83a39a-1e01-4ce2-a8d8-25ff9725aaaf.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -861,11 +861,17 @@ strong {
 }
 
 .booking-form-wrap {
-    background-color: rgba(0, 0, 0, 0.65);
-    border-radius: var(--border-radius-medium);
+    /* background-color: rgba(0, 0, 0, 0.65);
+    border-radius: var(--border-radius-medium); */
     position: relative;
     overflow: hidden;
     margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%); */
+    /* backdrop-filter: blur(8px); */
 }
 
 .booking-form {
@@ -1095,6 +1101,43 @@ strong {
     display: block;
 }
 
+/* blog */
+.booking-form-wrap {
+    width: 100%;
+}
+.blog-body {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: var(--border-radius-medium);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+.blog-body .chatbot {
+    align-self: center;
+    margin-top: 3rem;
+    width: 200px;
+    height: 200px;
+}
+
+.blog-body .chatbot h4 {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.booking-form-image-wrap {
+    height: 38rem;
+}
+
+.booking-form-image-wrap img {
+    object-fit: cover;
+}
+
 /*---------------------------------------
   RESPONSIVE STYLES               
 -----------------------------------------*/
@@ -1190,8 +1233,15 @@ div > div.vfrc-widget--launcher.c-PJLV {
     .reviews-block-info {
         padding: 20px;
     }
-    #section-3 .container > div > div:nth-child(2),
-    #section-3 .container > div > div:nth-child(3) {
+    /* #section-3 .container > div > div:nth-child(2) a,
+    #section-3 .container > div > div:nth-child(3) a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } */
+
+    .chatbot-link {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1214,6 +1264,10 @@ div > div.vfrc-widget--launcher.c-PJLV {
     .sticky-wrapper.is-sticky .container {
         margin-right: 10px;
         margin-left: 10px;
+    }
+
+    .blog-body {
+        width: 100%;
     }
 }
 
