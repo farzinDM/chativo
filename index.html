@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="description" content="">
         <meta name="author" content="">
@@ -140,7 +140,7 @@ Bootstrap 5 HTML CSS Template
 
                                 <p class="text-white">باور داریم که فناوری باید در خدمت انسان باشد، نه برعکس. به همین دلیل، چت‌بات‌های ما فراتر از یک ربات معمولی عمل می‌کنند—با شما صحبت می‌کنند، شما را درک می‌کنند و همیشه در کنارتان هستند. اگر به دنبال یک تجربه ساده و هوشمند هستید، ما اینجاییم!</p>
 
-                                <a href="#barista-team" class="smoothscroll btn custom-btn custom-border-btn mt-3 mb-4">چت بات ها</a>
+                                <a class="smoothscroll btn custom-btn custom-border-btn mt-3 mb-4" href="#section_3">چت بات ها</a>
                             </div>
 
                         </div>
@@ -148,7 +148,7 @@ Bootstrap 5 HTML CSS Template
                 </section>
 
 
-                <section class="barista-section section-padding section-bg" id="section-3">
+                <section class="barista-section section-padding section-bg" id="section_3">
                     <div class="container">
                         <div class="row justify-content-center">
 
@@ -335,7 +335,7 @@ Bootstrap 5 HTML CSS Template
         <script src="js/custom.js"></script>
 
         <!-- Store -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
         (function (d, t) {
             var v = d.createElement(t),
                 s = d.getElementsByTagName(t)[0];
@@ -360,8 +360,8 @@ Bootstrap 5 HTML CSS Template
                     //window.voiceflow.chat.hide();
                     let chatbot = document.getElementById("voiceflow-chat");
                     let button = document.querySelector("#voiceflow-chat").shadowRoot.querySelector("div > div.vfrc-widget--launcher.c-PJLV > button");
-                    button.style.display = "none";
-                    
+
+                    button.style.display = "none";        
                     
                     // Attach event listener to open chat on button click
                     document.getElementById("store-chatbot").addEventListener("click", function () {
@@ -389,7 +389,100 @@ Bootstrap 5 HTML CSS Template
             v.type = "text/javascript";
             s.parentNode.insertBefore(v, s);
         })(document, "script");
+    </script> -->
+
+            <!-- Flight -->
+  <script type="text/javascript">
+
+    flightCode = "67b0f2d0999ccc930feab869";
+    storeCode = "67775f0d11ca569c18c067bf";
+
+    function loadChatbot(code){
+        if(document.getElementById("voiceflow-chat")){
+            console.log("hii")
+            document.getElementById("voiceflow-chat").remove();
+        }else{
+            console.log("no")
+        }
+
+        (function (d, t) {
+            var v = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            
+            v.onload = function () {
+                window.voiceflow = window.voiceflow || {};
+                window.voiceflow.chat = window.voiceflow.chat || {};
+
+                // Load the Voiceflow chat widget with custom settings
+                window.voiceflow.chat.load({
+                    verify: { projectID: code },
+                    url: "https://general-runtime.voiceflow.com",
+                    versionID: "production",
+                    render: {
+                        mode: "embedded"
+                    },
+                    assistant: {
+                        embedded: true // Ensures default UI (floating button) does not appear
+                    }
+                }).then(() => {
+                    console.log("Voiceflow chat loaded");
+                    //window.voiceflow.chat.hide();
+                    let chatbot = document.getElementById("voiceflow-chat");
+
+                    if(document.querySelector("#voiceflow-chat").shadowRoot.querySelector("div.vfrc-widget.c-ivtLaR.c-ivtLaR-ftPdvq-withChat-false.t-dYQWgH > div.vfrc-widget--launcher.c-PJLV")){
+                        let button = document.querySelector("#voiceflow-chat").shadowRoot.querySelector("div.vfrc-widget.c-ivtLaR.c-ivtLaR-ftPdvq-withChat-false.t-dYQWgH > div.vfrc-widget--launcher.c-PJLV");
+
+                        button.style.display = "none";  
+                    }
+
+                    if(document.querySelector("#voiceflow-chat").shadowRoot.querySelector("div > div.vfrc-widget--launcher.c-PJLV > button")){
+                        let button = document.querySelector("#voiceflow-chat").shadowRoot.querySelector("div > div.vfrc-widget--launcher.c-PJLV > button");
+
+                        button.style.display = "none";  
+                    }
+                    
+                     // function open_chat() { 
+                        if (window.voiceflow.chat.open) {
+                            console.log("Opening chat...");
+                            window.voiceflow.chat.open(); // Open the chat manually
+                            // window.voiceflow.chat.show();
+
+                            // to change direction
+                            chatbot.style.direction = "ltr";
+
+                        }else {
+                            console.warn("Voiceflow chat not initialized yet.");
+                        }
+                    //}
+                    
+                    // Attach event listener to open chat on button click
+                    //document.getElementById("flight-chatbot").addEventListener("click", open_chat);
+                    //document.getElementById("store-chatbot").addEventListener("click", open_chat);
+
+
+                }).catch((err) => {
+                    console.error("Error loading Voiceflow chat:", err);
+                });
+            };
+
+
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+            v.type = "text/javascript";
+            s.parentNode.insertBefore(v, s);
+        })(document, "script");
+    }
+
+
+    document.getElementById("flight-chatbot").addEventListener("click", function(){
+        loadChatbot(flightCode);
+    });
+    document.getElementById("store-chatbot").addEventListener("click", function(){
+        loadChatbot(storeCode);
+    });
+        
+
     </script>
+
 
 </body>
 
